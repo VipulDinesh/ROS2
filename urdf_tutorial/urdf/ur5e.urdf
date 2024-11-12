@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+
+<robot name="ur5e">
+    
+    <!-- Base Link -->
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <cylinder radius="0.1" length="0.2"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <material name="gray">
+                <color rgba="0.5 0.5 0.5 1.0"/>
+            </material>
+        </visual>
+    </link>
+
+    <!-- Joint 1 -->
+    <joint name="shoulder_pan_joint" type="revolute">
+        <parent link="base_link"/>
+        <child link="shoulder_link"/>
+        <origin xyz="0 0 0.2" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="-3.14" upper="3.14" effort="100" velocity="1"/>
+    </joint>
+
+    <!-- Shoulder Link -->
+    <link name="shoulder_link">
+        <visual>
+            <geometry>
+                <box size="0.1 0.1 0.4"/>
+            </geometry>
+            <origin xyz="0 0 0.2" rpy="0 0 0"/>
+            <material name="blue">
+                <color rgba="0.0 0.0 1.0 1.0"/>
+            </material>
+        </visual>
+    </link>
+
+    <!-- Joint 2 -->
+    <joint name="shoulder_lift_joint" type="revolute">
+        <parent link="shoulder_link"/>
+        <child link="upper_arm_link"/>
+        <origin xyz="0 0 0.4" rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="-1.57" upper="1.57" effort="100" velocity="1"/>
+    </joint>
+
+    <!-- Upper Arm Link -->
+    <link name="upper_arm_link">
+        <visual>
+            <geometry>
+                <box size="0.1 0.1 0.3"/>
+            </geometry>
+            <origin xyz="0 0 0.15" rpy="0 0 0"/>
+            <material name="green">
+                <color rgba="0.0 1.0 0.0 1.0"/>
+            </material>
+        </visual>
+    </link>
+
+    <!-- Joint 3 -->
+    <joint name="elbow_joint" type="revolute">
+        <parent link="upper_arm_link"/>
+        <child link="forearm_link"/>
+        <origin xyz="0 0 0.3" rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="-1.57" upper="1.57" effort="100" velocity="1"/>
+    </joint>
+
+    <!-- Forearm Link -->
+    <link name="forearm_link">
+        <visual>
+            <geometry>
+                <box size="0.1 0.1 0.25"/>
+            </geometry>
+            <origin xyz="0 0 0.125" rpy="0 0 0"/>
+            <material name="red">
+                <color rgba="1.0 0.0 0.0 1.0"/>
+            </material>
+        </visual>
+    </link>
+
+    <!-- Joint 4 -->
+    <joint name="wrist_1_joint" type="revolute">
+        <parent link="forearm_link"/>
+        <child link="wrist_1_link"/>
+        <origin xyz="0 0 0.25" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="-3.14" upper="3.14" effort="100" velocity="1"/>
+    </joint>
+
+    <!-- Wrist 1 Link -->
+    <link name="wrist_1_link">
+        <visual>
+            <geometry>
+                <box size="0.1 0.1 0.2"/>
+            </geometry>
+            <origin xyz="0 0 0.1" rpy="0 0 0"/>
+            <material name="yellow">
+                <color rgba="1.0 1.0 0.0 1.0"/>
+            </material>
+        </visual>
+    </link>
+
+    <!-- Joint 5 -->
+    <joint name="wrist_2_joint" type="revolute">
+        <parent link="wrist_1_link"/>
+        <child link="wrist_2_link"/>
+        <origin xyz="0 0 0.2" rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="-3.14" upper="3.14" effort="100" velocity="1"/>
+    </joint>
+
+    <!-- Wrist 2 Link -->
+    <link name="wrist_2_link">
+        <visual>
+            <geometry>
+                <box size="0.1 0.1 0.15"/>
+            </geometry>
+            <origin xyz="0 0 0.075" rpy="0 0 0"/>
+            <material name="cyan">
+                <color rgba="0.0 1.0 1.0 1.0"/>
+            </material>
+        </visual>
+    </link>
+
+    <!-- Joint 6 -->
+    <joint name="wrist_3_joint" type="revolute">
+        <parent link="wrist_2_link"/>
+        <child link="wrist_3_link"/>
+        <origin xyz="0 0 0.15" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="-3.14" upper="3.14" effort="100" velocity="1"/>
+    </joint>
+
+    <!-- Wrist 3 Link -->
+    <link name="wrist_3_link">
+        <visual>
+            <geometry>
+                <box size="0.1 0.1 0.1"/>
+            </geometry>
+            <origin xyz="0 0 0.05" rpy="0 0 0"/>
+            <material name="purple">
+                <color rgba="0.5 0.0 0.5 1.0"/>
+            </material>
+        </visual>
+    </link>
+
+    <!-- End Effector -->
+    <link name="end_effector">
+        <visual>
+            <geometry>
+                <sphere radius="0.05"/>
+            </geometry>
+            <origin xyz="0 0 0.1" rpy="0 0 0"/>
+            <material name="white">
+                <color rgba="1.0 1.0 1.0 1.0"/>
+            </material>
+        </visual>
+    </link>
+
+    <!-- End Effector Joint -->
+    <joint name="ee_fixed_joint" type="fixed">
+        <parent link="wrist_3_link"/>
+        <child link="end_effector"/>
+        <origin xyz="0 0 0.1" rpy="0 0 0"/>
+    </joint>
+
+</robot> 

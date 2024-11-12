@@ -1,0 +1,34 @@
+# BASH
+
+### manual additions
+source /opt/ros/humble/setup.bash
+source ~/ros2_ws/install/setup.bash
+source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash
+export ROS_DOMAIN_ID=69
+export ROS_LOCALHOST_ONLY=1 # For classroom
+
+# For SLAM
+export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/humble/share/turtlebot3_gazebo/models
+source /usr/share/gazebo/setup.sh
+export TURTLEBOT3_MODEL=waffle
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+
+
+
+
+# ZSH
+
+# ROS
+source /opt/ros/humble/setup.zsh
+source ~/ros2_ws/install/setup.zsh
+source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.zsh
+eval "$(register-python-argcomplete3 ros2)"
+eval "$(register-python-argcomplete3 colcon)"
+#export ROS_DOMAIN_ID=69
+#export ROS_LOCALHOST_ONLY=1 # For classroom
+
+# For SLAM
+export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/humble/share/turtlebot3_gazebo/models
+source /usr/share/gazebo/setup.sh
+export TURTLEBOT3_MODEL=waffle
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp

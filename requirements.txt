@@ -1,0 +1,41 @@
+# Basic
+sudo apt install python3-colcon-common-extensions
+
+# For Week 4 - 3 wheel URDF
+sudo apt-get install python3-pip
+pip3 install transforms3d
+
+# For Week 5 - arm urdf control
+sudo apt-get install ros-humble-teleop-twist-keyboard ros-humble-
+joint-state-publisher* ros-humble-joint-trajectory-controller ros-
+humble-controller-manager ros-humble-gazebo-* ros-humble-gazebo-msgs
+ros-humble-gazebo-ros ros-humble-gazebo-ros2-control-demos ros-
+humble-ros2-control ros-humble-ros2-controllers ros-humble-
+ros2controlcli ros-humble-xacro ros-humble-gazebo-dev ros-humble-
+gazebo-plugins
+
+# For week 6 - opencv
+sudo apt install libopencv-dev python3-opencv
+
+# For week 8 - SLAM
+sudo apt install ros-humble-navigation2 ros-humble-nav2-bringup
+“ros-humble-turtlebot3*” ros-humble-rmw-cyclonedds-cpp ros-humble-
+slam-toolbox
+
+
+
+# VSCode
+CMake
+Intellicode
+Intellicode API Usage Examples
+Pylance
+Python
+Python Debugger
+Remote - SSH
+ROS Snippets
+URDF
+XML
+XML Complete
+XML Tools
+ROS
+YAML
